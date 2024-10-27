@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { Card } from "./Card";
 import Grid from "./Grid";
 
 function Container () {
@@ -8,8 +7,9 @@ function Container () {
 
     useEffect(() =>{
         fetch('https://dragonball-api.com/api/characters')
-        .then(respose => respose.json())
+        .then(response => response.json())
         .then((data) => setData(data.items))
+        .catch(error => console.error("ERROR:", error))
     }, []);
 
 
